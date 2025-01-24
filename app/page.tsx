@@ -38,24 +38,7 @@ import RecognitionSection from "@/components/RecognitionSection";
 import ProcessSection from "@/components/ProcessSection";
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState("all");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  const navItems = [
-    "Home",
-    "About",
-    "Services",
-    "Portfolio",
-    "Careers",
-    "Contact",
-  ];
+  const [activeTab, setActiveTab] = useState("all"); 
   const steps = [
     {
       number: "01",
@@ -233,126 +216,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
-      <header
-        className={`fixed left-1/2 -translate-x-1/2 w-[95%] xl:w-[80%] z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/[0.02] backdrop-blur-md border border-white/[0.05] py-4 lg:py-5"
-            : "bg-transparent py-5 lg:py-6"
-        } rounded-full top-6`}
-      >
-        <div className="px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-1 lg:p-2.5 rounded-xl">
-                <Zap size={24} className="text-gray-900" />
-              </div>
-              <span className="text-white font-bold text-xl lg:text-2xl tracking-tight">
-                GDFUTURE
-              </span>
-            </div>
+    
 
-            <nav className="hidden md:flex items-center space-x-2">
-              {navItems.map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="group relative px-2 py-1 xl:px-4 xl:py-2 text-sm lg:text-base text-gray-300 transition-colors rounded-lg font-medium overflow-hidden"
-                >
-                  <span className="relative z-10 transition-colors group-hover:text-white">
-                    {item}
-                  </span>
-                  <div className="absolute inset-0 bg-white/[0.03] rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300" />
-                </a>
-              ))}
-            </nav>
-
-            <div className="hidden md:block">
-              <button className="relative group px-4 py-1.5 xl:px-6 xl:py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 rounded-xl text-sm lg:text-base lg:font-semibold transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem] hover:shadow-yellow-500/30">
-                <span className="relative z-10">Get Started</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              </button>
-            </div>
-
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2 hover:bg-white/[0.03] rounded-lg transition-colors"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={overlayVariants}
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            <motion.div
-              className="fixed right-0 top-0 h-full w-[80%] max-w-sm bg-gray-900 z-50 md:hidden"
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-            >
-              <div className="p-6">
-                <motion.div
-                  className="flex items-center justify-between mb-8"
-                  variants={itemVariants}
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-1 rounded-xl">
-                      <Zap size={20} className="text-gray-900" />
-                    </div>
-                    <span className="text-white font-bold text-lg tracking-tight">
-                      GDFUTURE
-                    </span>
-                  </div>
-                  <motion.button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-white p-2 hover:bg-white/[0.03] rounded-lg transition-colors"
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <X size={24} />
-                  </motion.button>
-                </motion.div>
-
-                <nav className="flex flex-col space-y-1">
-                  {navItems.map((item) => (
-                    <motion.a
-                      key={item}
-                      href={`#${item.toLowerCase()}`}
-                      className="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/[0.03] rounded-lg transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      variants={itemVariants}
-                      whileHover={{ x: 10 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      {item}
-                    </motion.a>
-                  ))}
-                </nav>
-
-                <motion.button
-                  className="w-full mt-8 px-4 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 rounded-xl font-medium transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem] hover:shadow-yellow-500/30"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Get Started
-                </motion.button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+  
 
       {/* Hero Section */}
       <motion.section
