@@ -7,7 +7,6 @@ import Portfolio from "@/components/Portofolio";
 import ProcessSection from "@/components/ProcessSection";
 import RecognitionSection from "@/components/RecognitionSection";
 import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
 
 const App = () => {
   return (
