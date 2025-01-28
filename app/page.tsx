@@ -1,6 +1,5 @@
 'use client';
-import React, { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import React from "react";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import Portfolio from "@/components/Portofolio";

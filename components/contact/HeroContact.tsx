@@ -27,7 +27,7 @@ const HeroContact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <span className="text-white">Let's Start a </span>
+          <span className="text-white">Let&apos;s Start a </span>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
             Conversation
           </span>
@@ -39,7 +39,7 @@ const HeroContact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Have a project in mind? We'd love to hear about it. Drop us a line and let's create something amazing together.
+          Have a project in mind? We&apos;d love to hear about it. Drop us a line and let&apos;s create something amazing together.
         </motion.p>
       </div>
     </motion.section>

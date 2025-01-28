@@ -39,7 +39,7 @@ const HeroCareers = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Be part of a team that's shaping the future of digital technology
+          Be part of a team that&apos;s shaping the future of digital technology
         </motion.p>
 
         <motion.button

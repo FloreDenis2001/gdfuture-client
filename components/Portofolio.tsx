@@ -124,7 +124,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Explore our latest work and see how we've helped businesses
+            Explore our latest work and see how we&apos;ve helped businesses
             achieve their digital goals
           </motion.p>
 

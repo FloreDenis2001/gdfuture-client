@@ -31,7 +31,7 @@ const StorySection = () => {
               exceptional digital experiences.
             </p>
             <p className="text-gray-300">
-              Today, we're proud to have helped numerous businesses achieve their digital transformation goals, 
+              Today, we&apos;re proud to have helped numerous businesses achieve their digital transformation goals, 
               creating solutions that not only meet current needs but are built to evolve with future technologies.
             </p>
           </motion.div>

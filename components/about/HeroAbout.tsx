@@ -39,7 +39,7 @@ const HeroAbout = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          We're a team of passionate developers, designers, and digital innovators committed to excellence
+          We&apos;re a team of passionate developers, designers, and digital innovators committed to excellence
         </motion.p>
       </div>
     </motion.section>

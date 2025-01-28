@@ -48,7 +48,7 @@ const CTASection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Sparkles className="text-gray-900" size={24} />
-            <span className="text-gray-900 font-semibold">Let's Create Together</span>
+            <span className="text-gray-900 font-semibold">Let&apos;s Create Together</span>
           </motion.div>
 
           <motion.h2 
