@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-// ... (previous code remains the same)
 
 const portfolioItems = [
   {
@@ -47,47 +45,38 @@ const portfolioItems = [
   },
 ];
 
-const Portfolio = () => {
+const tabs = [
+  { id: "all", label: "All Projects" },
+  { id: "web", label: "Web Apps" },
+  { id: "mobile", label: "Mobile" },
+  { id: "ai", label: "AI Solutions" },
+];
+
+const itemVariants = {
+  closed: { x: 50, opacity: 0 },
+  open: { x: 0, opacity: 1 },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("all");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-  };
-
-  const tabs = [
-    { id: "all", label: "All Projects" },
-    { id: "web", label: "Web Apps" },
-    { id: "mobile", label: "Mobile" },
-    { id: "ai", label: "AI Solutions" },
-  ];
 
   return (
     <motion.section
       id="portfolio"
       className="py-20 px-4 relative overflow-hidden"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
       <motion.div
@@ -101,15 +90,13 @@ const Portfolio = () => {
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.div
             className="inline-block mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
             <div className="px-6 py-2 bg-yellow-500/10 rounded-full backdrop-blur-sm border border-yellow-500/20">
@@ -122,8 +109,7 @@ const Portfolio = () => {
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="text-white">Featured </span>
@@ -135,19 +121,17 @@ const Portfolio = () => {
           <motion.p
             className="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto mb-12"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Explore our latest work and see how we've helped businesses achieve
-            their digital goals
+            Explore our latest work and see how we've helped businesses
+            achieve their digital goals
           </motion.p>
 
           <motion.div
             className="flex flex-wrap justify-center gap-3 mb-12"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="bg-white/5 backdrop-blur-sm p-1.5 rounded-2xl border border-white/10">
@@ -192,10 +176,9 @@ const Portfolio = () => {
           className="grid sm:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          animate="show"
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {portfolioItems
               .filter(
                 (item) => activeTab === "all" || item.category === activeTab
@@ -215,7 +198,9 @@ const Portfolio = () => {
                       className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/90 to-gray-900/50 opacity-0 group-hover:opacity-100 transition-all duration-500"
                       initial={false}
                       animate={
-                        hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }
+                        hoveredIndex === index
+                          ? { opacity: 1 }
+                          : { opacity: 0 }
                       }
                     />
 
@@ -225,7 +210,9 @@ const Portfolio = () => {
                       className="w-full h-[300px] sm:h-[400px] object-cover opacity-90 group-hover:opacity-60 transition-opacity duration-500"
                       initial={false}
                       animate={
-                        hoveredIndex === index ? { scale: 1.05 } : { scale: 1 }
+                        hoveredIndex === index
+                          ? { scale: 1.05 }
+                          : { scale: 1 }
                       }
                       transition={{ duration: 0.6 }}
                     />
@@ -315,6 +302,4 @@ const Portfolio = () => {
       </div>
     </motion.section>
   );
-};
-
-export default Portfolio;
+}

@@ -70,8 +70,7 @@ const RecognitionSection = () => {
     <motion.section 
       className="py-20 px-4 relative overflow-hidden"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
       <motion.div 
@@ -86,8 +85,7 @@ const RecognitionSection = () => {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            animate="show"
           >
             <motion.div 
               className="inline-block mb-6"
@@ -169,8 +167,7 @@ const RecognitionSection = () => {
             className="grid grid-cols-2 gap-4 sm:gap-8 mt-8 md:mt-0"
             variants={containerVariants}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            animate="show"
           >
             {images.map((image, index) => (
               <motion.div

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Github, Linkedin, Twitter, MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
@@ -5,7 +6,7 @@ import { Zap, Github, Linkedin, Twitter, MapPin, Mail, Phone, ExternalLink } fro
 const Footer = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
+    show: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
@@ -16,7 +17,7 @@ const Footer = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
+    show: {
       opacity: 1,
       y: 0,
       transition: {
@@ -38,8 +39,7 @@ const Footer = () => {
         className="max-w-7xl mx-auto relative"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+        animate="show"
       >
         <motion.div 
           className="grid sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16"

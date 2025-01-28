@@ -7,8 +7,7 @@ const CTASection = () => {
     <motion.section 
       className="relative py-24 px-4 overflow-hidden"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
       {/* Background with animated gradient */}
@@ -39,15 +38,13 @@ const CTASection = () => {
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.div 
             className="inline-flex items-center space-x-2 mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Sparkles className="text-gray-900" size={24} />
@@ -57,8 +54,7 @@ const CTASection = () => {
           <motion.h2 
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             Ready to Transform Your
@@ -68,8 +64,7 @@ const CTASection = () => {
                 className="absolute -bottom-2 left-0 w-full"
                 viewBox="0 0 100 20"
                 initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
+                animate={{ pathLength: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
                 <motion.path
@@ -86,8 +81,7 @@ const CTASection = () => {
           <motion.p 
             className="text-lg sm:text-xl text-gray-800 mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             Let's create something extraordinary together. Our team is ready to help you achieve your digital goals.
@@ -96,8 +90,7 @@ const CTASection = () => {
           <motion.div 
             className="flex flex-col sm:flex-row gap-6 justify-center"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <motion.button 

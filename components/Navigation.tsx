@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Zap, X, Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,6 +23,7 @@ export default function Navigation() {
     { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
     { label: "Portfolio", path: "/portfolio" },
+    { label: "Team", path: "/team" },
     { label: "Careers", path: "/careers" },
     { label: "Contact", path: "/contact" },
   ];
@@ -58,6 +60,7 @@ export default function Navigation() {
   };
 
   return (
+    <>
     <header
       className={`fixed left-1/2 -translate-x-1/2 w-[95%] xl:w-[80%] z-50 transition-all duration-300 ${
         isScrolled
@@ -81,16 +84,16 @@ export default function Navigation() {
 
           <nav className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
-              <button
+              <Link
+                href={item.path}
                 key={item.label}
-                onClick={() => router.push(item.path)}
                 className="group relative px-2 py-1 xl:px-4 xl:py-2 text-sm lg:text-base text-gray-300 transition-colors rounded-lg font-medium overflow-hidden"
               >
                 <span className="relative z-10 transition-colors group-hover:text-white">
                   {item.label}
                 </span>
                 <div className="absolute inset-0 bg-white/[0.03] rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300" />
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -113,82 +116,84 @@ export default function Navigation() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={overlayVariants}
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            <motion.div
-              className="fixed right-0 top-0 h-full w-[80%] max-w-sm bg-gray-900 z-50 md:hidden"
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-            >
-              <div className="p-6">
-                <motion.div
-                  className="flex items-center justify-between mb-8"
-                  variants={itemVariants}
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-1 rounded-xl">
-                      <Zap size={20} className="text-gray-900" />
-                    </div>
-                    <span className="text-white font-bold text-lg tracking-tight">
-                      GDFUTURE
-                    </span>
-                  </div>
-                  <motion.button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-white p-2 hover:bg-white/[0.03] rounded-lg transition-colors"
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <X size={24} />
-                  </motion.button>
-                </motion.div>
-
-                <nav className="flex flex-col space-y-1">
-                  {navItems.map((item) => (
-                    <motion.button
-                      key={item.label}
-                      onClick={() => {
-                        router.push(item.path);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/[0.03] rounded-lg transition-colors text-left"
-                      variants={itemVariants}
-                      whileHover={{ x: 10 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      {item.label}
-                    </motion.button>
-                  ))}
-                </nav>
-
-                <motion.button
-                  onClick={() => {
-                    router.push("/contact");
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="w-full mt-8 px-4 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 rounded-xl font-medium transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem] hover:shadow-yellow-500/30"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Get Started
-                </motion.button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+    
     </header>
+      <AnimatePresence>
+      {isMobileMenuOpen && (
+        <>
+          <motion.div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={overlayVariants}
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+
+          <motion.div
+            className="fixed right-0 top-0 h-full w-[80%] max-w-sm bg-gray-900 z-50 md:hidden"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+          >
+            <div className="p-6">
+              <motion.div
+                className="flex items-center justify-between mb-8"
+                variants={itemVariants}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-1 rounded-xl">
+                    <Zap size={20} className="text-gray-900" />
+                  </div>
+                  <span className="text-white font-bold text-lg tracking-tight">
+                    GDFUTURE
+                  </span>
+                </div>
+                <motion.button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-white p-2 hover:bg-white/[0.03] rounded-lg transition-colors"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <X size={24} />
+                </motion.button>
+              </motion.div>
+
+              <nav className="flex flex-col space-y-1">
+                {navItems.map((item) => (
+                  <motion.button
+                    key={item.label}
+                    onClick={() => {
+                      router.push(item.path);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/[0.03] rounded-lg transition-colors text-left"
+                    variants={itemVariants}
+                    whileHover={{ x: 10 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {item.label}
+                  </motion.button>
+                ))}
+              </nav>
+
+              <motion.button
+                onClick={() => {
+                  router.push("/contact");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full mt-8 px-4 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 rounded-xl font-medium transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem] hover:shadow-yellow-500/30"
+                variants={itemVariants}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Get Started
+              </motion.button>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
