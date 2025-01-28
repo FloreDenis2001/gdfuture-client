@@ -2,8 +2,17 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
+interface Project {
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  tech: string[];
+  gradient: string;
+}
+
 interface ProjectsGridProps {
-  projects: any[];
+  projects: Project[];
   activeTab: string;
 }
 

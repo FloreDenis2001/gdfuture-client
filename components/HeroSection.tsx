@@ -1,7 +1,7 @@
-'use client';   
 import React from "react";
 import { Rocket, Users, Award, MessageSquare, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -18,10 +18,12 @@ export default function HeroSection() {
         animate={{ scale: 1 }}
         transition={{ duration: 2, ease: "easeOut" }}
       >
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80"
           alt="Digital Background"
           className="w-full h-full object-cover opacity-20"
+          width={1920}
+          height={1080}
         />
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-yellow-900/50 to-gray-900/50 mix-blend-multiply"

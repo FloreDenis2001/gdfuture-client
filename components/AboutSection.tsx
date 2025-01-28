@@ -56,7 +56,7 @@ export default function AboutSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              With over a decade of experience in digital innovation, we've
+              With over a decade of experience in digital innovation, we&apos;ve
               mastered the art of transforming complex challenges into elegant
               solutions. Our passion for technology and commitment to
               excellence drives us to deliver exceptional results for our

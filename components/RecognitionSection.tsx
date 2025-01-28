@@ -1,6 +1,7 @@
 import React from 'react';
-import { Award, Trophy, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Award, Trophy, Star } from 'lucide-react';
+import Image from 'next/image';
 
 const RecognitionSection = () => {
   const containerVariants = {
@@ -185,10 +186,12 @@ const RecognitionSection = () => {
                   whileHover={{ opacity: 1 }}
                 />
                 
-                <img
+                <Image
                   src={image.url}
                   alt="Team and office"
                   className="w-full h-32 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  width={800}
+                  height={600}
                 />
 
                 <motion.div 

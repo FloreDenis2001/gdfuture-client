@@ -79,12 +79,9 @@ const CTASection = () => {
           </motion.h2>
 
           <motion.p 
-            className="text-lg sm:text-xl text-gray-800 mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto"
           >
-            Let's create something extraordinary together. Our team is ready to help you achieve your digital goals.
+            Let&apos;s discuss how we can help you achieve your digital goals
           </motion.p>
 
           <motion.div 
