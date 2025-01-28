@@ -44,7 +44,7 @@ export default function AboutSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <span className="text-white">We're a Team of </span>
+              <span className="text-white">We&apos;re a Team of </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                 Digital Craftsmen
               </span>
