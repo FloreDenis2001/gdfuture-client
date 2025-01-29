@@ -2,6 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Github, Linkedin, Twitter, MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
+import logo from '@/public/logo.png';
+import Image from 'next/image';
 
 const Footer = () => {
   const containerVariants = {
@@ -47,11 +49,8 @@ const Footer = () => {
         >
           {/* Company Info */}
           <motion.div variants={itemVariants}>
-            <div className="group flex items-center space-x-2 mb-6">
-              <div className="relative">
-                <div className="absolute inset-0 bg-yellow-400/20 blur-lg group-hover:blur-xl transition-all duration-300" />
-                <Zap size={28} className="text-yellow-400 relative z-10 transform group-hover:scale-110 transition-transform duration-300" />
-              </div>
+            <div className="group flex items-center space-x-1 mb-6">
+            <Image src={logo} alt="GDFUTURE" width={64} height={64} />
               <span className="text-white font-bold text-2xl tracking-tight">GDFUTURE</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
