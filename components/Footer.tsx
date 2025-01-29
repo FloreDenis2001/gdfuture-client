@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Github, Linkedin, Twitter, MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Twitter, MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
 import logo from '@/public/logo.png';
 import Image from 'next/image';
 
