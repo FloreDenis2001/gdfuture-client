@@ -9,7 +9,7 @@ import CTASection from "@/components/CTASection";
 
 const App = () => {
   return (
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-black/50">
         <HeroSection />
         <AboutSection />
         <ServicesSection />

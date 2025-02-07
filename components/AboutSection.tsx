@@ -56,12 +56,7 @@ export default function AboutSection() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.div
-        className="absolute inset-0 bg-black/50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      />
+      
 
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

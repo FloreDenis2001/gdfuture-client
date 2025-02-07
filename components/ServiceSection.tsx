@@ -100,16 +100,7 @@ export default function ServicesSection() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Dynamic Background */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
-       
-      </motion.div>
+    
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         {/* Header */}
