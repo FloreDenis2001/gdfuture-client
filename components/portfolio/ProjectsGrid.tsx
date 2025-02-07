@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from './ProjectCard';
@@ -16,7 +18,7 @@ interface ProjectsGridProps {
   activeTab: string;
 }
 
-const ProjectsGrid = ({ projects, activeTab }: ProjectsGridProps) => {
+export default function ProjectsGrid({ projects, activeTab }: ProjectsGridProps) {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
   const containerVariants = {
@@ -64,6 +66,4 @@ const ProjectsGrid = ({ projects, activeTab }: ProjectsGridProps) => {
       </AnimatePresence>
     </motion.div>
   );
-};
-
-export default ProjectsGrid;
+}

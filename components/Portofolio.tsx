@@ -4,67 +4,57 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const portfolioItems = [
   {
-    title: "AI-Powered Analytics Platform",
+    title: "Enterprise E-Commerce Platform",
     description:
-      "Enterprise-level analytics platform with machine learning capabilities for predictive insights.",
+      "High-scale e-commerce solution built with microservices architecture and real-time inventory management.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80",
-    category: "ai",
-    tech: ["Python", "TensorFlow", "React", "AWS"],
+    category: "fullstack",
+    tech: ["Next.js", "Spring Boot", "MongoDB", "AWS ECS"],
     link: "#",
   },
   {
-    title: "E-Commerce Mobile App",
+    title: "Real-time Collaboration Suite",
     description:
-      "Cross-platform mobile application for a luxury fashion brand with AR try-on features.",
+      "Enterprise collaboration platform with real-time document editing and team communication.",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80",
+    category: "web",
+    tech: ["React", "WebSocket", "Spring WebFlux", "Docker"],
+    link: "#",
+  },
+  {
+    title: "Cross-platform Mobile App",
+    description:
+      "Feature-rich mobile application for seamless inventory management and order processing.",
     image:
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80",
     category: "mobile",
-    tech: ["React Native", "Node.js", "Firebase", "AR Kit"],
+    tech: ["React Native", "Spring Boot", "MySQL", "AWS EKS"],
     link: "#",
   },
   {
-    title: "Smart City Dashboard",
+    title: "DevOps Dashboard",
     description:
-      "Real-time monitoring and control system for urban infrastructure management.",
+      "Comprehensive monitoring and deployment management system for microservices architecture.",
     image:
-      "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80",
-    category: "web",
-    tech: ["Next.js", "GraphQL", "D3.js", "IoT"],
+      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80",
+    category: "fullstack",
+    tech: ["Next.js", "Java", "Kubernetes", "AWS"],
     link: "#",
-  },
-  {
-    title: "Healthcare AI Assistant",
-    description:
-      "AI-powered virtual assistant for patient care and medical diagnosis support.",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80",
-    category: "ai",
-    tech: ["Python", "NLP", "Vue.js", "Docker"],
-    link: "#",
-  },
+  }
 ];
 
 const tabs = [
   { id: "all", label: "All Projects" },
+  { id: "fullstack", label: "Full Stack" },
   { id: "web", label: "Web Apps" },
-  { id: "mobile", label: "Mobile" },
-  { id: "ai", label: "AI Solutions" },
+  { id: "mobile", label: "Mobile" }
 ];
 
 const itemVariants = {
-  closed: { x: 50, opacity: 0 },
-  open: { x: 0, opacity: 1 },
-};
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 }
 };
 
 export default function Portfolio() {
@@ -74,19 +64,20 @@ export default function Portfolio() {
   return (
     <motion.section
       id="portfolio"
-      className="py-20 px-4 relative overflow-hidden"
+      className="py-32 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-transparent to-yellow-900/5"
+        className="absolute inset-0 bg-black/50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       />
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+        {/* Titlu și descriere */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -95,44 +86,45 @@ export default function Portfolio() {
         >
           <motion.div
             className="inline-block mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="px-6 py-2 bg-yellow-500/10 rounded-full backdrop-blur-sm border border-yellow-500/20">
-              <span className="text-yellow-400 font-medium bg-gradient-to-r from-yellow-200 to-yellow-400 bg-clip-text text-transparent">
-                Our Work
+            <div className="px-6 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-sm">
+              <span className="text-yellow-300 font-medium">
+                Featured Projects
               </span>
             </div>
           </motion.div>
 
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="text-white">Featured </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-              Projects
-            </span>
-          </motion.h2>
-
-          <motion.p
-            className="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto mb-12"
+            className="text-4xl lg:text-5xl font-bold mb-8 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Explore our latest work and see how we&apos;ve helped businesses
-            achieve their digital goals
-          </motion.p>
+            <span className="text-white">Our Technical </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+              Excellence
+            </span>
+          </motion.h2>
 
-          <motion.div
-            className="flex flex-wrap justify-center gap-3 mb-12"
+          <motion.p
+            className="text-gray-300 text-lg mb-12 leading-relaxed max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Discover our enterprise-grade solutions built with modern tech stacks,
+            focusing on scalability, performance, and user experience
+          </motion.p>
+
+          {/* Bara de selecție (tabs) – varianta inițială cu text calibrat */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-3 mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="bg-white/5 backdrop-blur-sm p-1.5 rounded-2xl border border-white/10">
               <div className="flex gap-1">
@@ -140,7 +132,7 @@ export default function Portfolio() {
                   <motion.button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`relative px-6 py-2.5 rounded-xl transition-all duration-300 font-medium text-sm`}
+                    className="relative px-4 md:px-6 py-2 text-xs md:text-sm rounded-xl transition-all duration-300 font-medium"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -148,18 +140,13 @@ export default function Portfolio() {
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl"
                         layoutId="activeTab"
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                          duration: 0.3,
-                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
                     <span
                       className={`relative z-10 ${
                         activeTab === tab.id
-                          ? "text-gray-900"
+                          ? "text-white"
                           : "text-gray-400 hover:text-white"
                       }`}
                     >
@@ -172,11 +159,18 @@ export default function Portfolio() {
           </motion.div>
         </motion.div>
 
+        {/* Grid-ul de proiecte */}
         <motion.div
-          className="grid sm:grid-cols-2 gap-8"
-          variants={containerVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
-          animate="show"
+          animate="visible"
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
         >
           <AnimatePresence>
             {portfolioItems
@@ -186,39 +180,32 @@ export default function Portfolio() {
               .map((project, index) => (
                 <motion.div
                   key={project.title}
-                  className="group relative"
                   variants={itemVariants}
+                  className="group relative"
                   onHoverStart={() => setHoveredIndex(index)}
                   onHoverEnd={() => setHoveredIndex(null)}
+                  onTapStart={() => setHoveredIndex(index)}
+                  onTap={() => setHoveredIndex(null)}
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="relative overflow-hidden rounded-2xl bg-gray-900/20 backdrop-blur-sm border border-white/5">
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/90 to-gray-900/50 opacity-0 group-hover:opacity-100 transition-all duration-500"
-                      initial={false}
-                      animate={
-                        hoveredIndex === index
-                          ? { opacity: 1 }
-                          : { opacity: 0 }
-                      }
-                    />
+                  <div className="relative overflow-hidden rounded-2xl bg-gray-900/20 backdrop-blur-sm border border-white/10">
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
 
                     <motion.img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-[300px] sm:h-[400px] object-cover opacity-90 group-hover:opacity-60 transition-opacity duration-500"
+                      className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover transition-all duration-500"
                       initial={false}
                       animate={
                         hoveredIndex === index
-                          ? { scale: 1.05 }
-                          : { scale: 1 }
+                          ? { scale: 1.05, filter: "brightness(0.5)" }
+                          : { scale: 1, filter: "brightness(0.8)" }
                       }
-                      transition={{ duration: 0.6 }}
                     />
 
                     <motion.div
-                      className="absolute inset-0 p-8 flex flex-col justify-end"
+                      className="absolute inset-0 p-4 sm:p-8 flex flex-col justify-end"
                       initial={false}
                       animate={
                         hoveredIndex === index
@@ -227,70 +214,33 @@ export default function Portfolio() {
                       }
                       transition={{ duration: 0.3 }}
                     >
-                      <motion.div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-                      <div className="relative z-10">
-                        <motion.h3
-                          className="text-2xl font-bold text-white mb-3"
-                          initial={false}
-                          animate={
-                            hoveredIndex === index
-                              ? { y: 0, opacity: 1 }
-                              : { y: 20, opacity: 0 }
-                          }
-                          transition={{ duration: 0.3, delay: 0.1 }}
-                        >
+                      <div className="relative z-10 space-y-2 sm:space-y-4">
+                        <h3 className="text-lg sm:text-2xl font-bold text-white">
                           {project.title}
-                        </motion.h3>
+                        </h3>
 
-                        <motion.p
-                          className="text-gray-300 mb-4"
-                          initial={false}
-                          animate={
-                            hoveredIndex === index
-                              ? { y: 0, opacity: 1 }
-                              : { y: 20, opacity: 0 }
-                          }
-                          transition={{ duration: 0.3, delay: 0.2 }}
-                        >
+                        <p className="text-xs sm:text-sm text-gray-300 line-clamp-2">
                           {project.description}
-                        </motion.p>
+                        </p>
 
-                        <motion.div
-                          className="flex flex-wrap gap-2 mb-6"
-                          initial={false}
-                          animate={
-                            hoveredIndex === index
-                              ? { y: 0, opacity: 1 }
-                              : { y: 20, opacity: 0 }
-                          }
-                          transition={{ duration: 0.3, delay: 0.3 }}
-                        >
-                          {project.tech.map((tech, tIndex) => (
+                        <div className="flex flex-wrap gap-1">
+                          {project.tech.map((tech, techIndex) => (
                             <span
-                              key={tIndex}
-                              className="px-3 py-1 bg-yellow-500/20 rounded-full text-yellow-300 text-sm backdrop-blur-sm border border-yellow-500/20"
+                              key={techIndex}
+                              className="px-2 py-0.5 bg-yellow-500/20 rounded-full text-xs sm:text-sm text-yellow-300 backdrop-blur-sm border border-yellow-500/20"
                             >
                               {tech}
                             </span>
                           ))}
-                        </motion.div>
+                        </div>
 
                         <motion.a
                           href={project.link}
-                          className="inline-flex items-center text-white font-medium group/btn bg-yellow-500/20 px-4 py-2 rounded-xl hover:bg-yellow-500/30 transition-all duration-300"
-                          initial={false}
-                          animate={
-                            hoveredIndex === index
-                              ? { y: 0, opacity: 1 }
-                              : { y: 20, opacity: 0 }
-                          }
-                          transition={{ duration: 0.3, delay: 0.4 }}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
+                          className="inline-flex items-center text-xs sm:text-sm text-white font-medium bg-yellow-500/20 px-3 py-1 rounded-xl hover:bg-yellow-500/30 transition-all duration-300"
+                          whileHover={{ x: 5 }}
                         >
-                          View Project
-                          <ExternalLink className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          View Project 
+                          <ExternalLink className="ml-1 w-3 h-3 transition-transform" />
                         </motion.a>
                       </div>
                     </motion.div>

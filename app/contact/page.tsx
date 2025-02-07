@@ -6,7 +6,7 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 pt-32">
+    <div className="min-h-screen bg-black/50 pt-32">
     <HeroContact />
     <ContactGrid />
     <FAQSection />

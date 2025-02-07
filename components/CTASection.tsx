@@ -1,136 +1,160 @@
-import React from 'react';
-import { ArrowRight, Sparkles, Phone } from 'lucide-react';
-import { motion } from 'framer-motion';
+"use client";
 
-const CTASection = () => {
+import React from "react";
+import { ArrowRight, Sparkles, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+export default function CTASection() {
   return (
-    <motion.section 
-      className="relative py-24 px-4 overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+    <motion.section
+      className="relative py-24 overflow-hidden"
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 1 }}
     >
-      {/* Background with animated gradient */}
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600"
-        animate={{
-          backgroundPosition: ['0% 0%', '100% 100%'],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-      />
-      
-      {/* Decorative elements */}
-      <motion.div 
-        className="absolute inset-0 opacity-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
-      </motion.div>
-
-      <div className="max-w-5xl mx-auto relative">
-        <motion.div 
+      <div className="container mx-auto px-4 relative z-10 max-w-5xl">
+        <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div 
-            className="inline-flex items-center space-x-2 mb-6"
+          <motion.div
+            className="inline-block mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5 }}
           >
-            <Sparkles className="text-gray-900" size={24} />
-            <span className="text-gray-900 font-semibold">Let&apos;s Create Together</span>
+            <div className="px-6 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-sm">
+              <span className="text-yellow-300 font-medium">
+                Start Your Digital Journey
+              </span>
+            </div>
           </motion.div>
 
-          <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+          <motion.h2
+            className="text-4xl lg:text-5xl font-bold mb-8 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Ready to Transform Your
-            <span className="relative">
-              <span className="relative z-10"> Digital Presence</span>
-              <motion.svg
-                className="absolute -bottom-2 left-0 w-full"
-                viewBox="0 0 100 20"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-              >
-                <motion.path
-                  d="M0 10 Q50 0 100 10"
-                  fill="none"
-                  stroke="rgba(0,0,0,0.3)"
-                  strokeWidth="4"
-                />
-              </motion.svg>
+            <span className="text-white">Transform Your Ideas Into </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+              Digital Reality
             </span>
-            ?
           </motion.h2>
 
-          <motion.p 
-            className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto"
-          >
-            Let&apos;s discuss how we can help you achieve your digital goals
-          </motion.p>
-
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-6 justify-center"
+          <motion.p
+            className="text-gray-300 text-lg max-w-3xl mx-auto mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <motion.button 
-              className="group relative px-8 py-4 bg-gray-900 text-yellow-400 rounded-xl font-semibold overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={false}
-                whileHover={{ scale: 1.5 }}
-                transition={{ duration: 1 }}
-              />
-              <span className="relative flex items-center justify-center">
-                <Phone className="mr-2 h-5 w-5" />
-                Schedule a Consultation
-                <motion.div
-                  className="absolute right-0 w-12 h-full bg-gradient-to-r from-transparent to-yellow-400/10 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"
-                />
-              </span>
-            </motion.button>
+            Let's collaborate to create innovative solutions that drive your
+            business forward. Our team of experts is ready to bring your vision
+            to life.
+          </motion.p>
 
-            <motion.button 
-              className="group relative px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-xl font-semibold overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gray-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={false}
-                whileHover={{ scale: 1.5 }}
-                transition={{ duration: 1 }}
-              />
-              <span className="relative flex items-center justify-center">
-                View Our Work
-                <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-              </span>
-            </motion.button>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <Link href="/contact">
+              <motion.button
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 rounded-xl font-medium overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-yellow-700 opacity-0 group-hover:opacity-100"
+                  initial={false}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div className="relative flex items-center">
+                  <Phone className="mr-2 w-5 h-5" />
+                  <span>Schedule Consultation</span>
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 w-full bg-gray-900/20"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              </motion.button>
+            </Link>
+
+            <Link href="/portfolio">
+              <motion.button
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-white/5 backdrop-blur-sm border border-yellow-500/20 text-white rounded-xl font-medium overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-yellow-500/10 opacity-0 group-hover:opacity-100"
+                  initial={false}
+                  transition={{ duration: 0.3 }}
+                />
+
+                <motion.div className="relative flex items-center">
+                  <span>Explore Portfolio</span>
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 w-full bg-yellow-500/30"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              </motion.button>
+            </Link>
           </motion.div>
+
+          {/* Floating Elements */}
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div
+              className="absolute top-1/4 left-10 w-3 h-3 rounded-full bg-yellow-400/30"
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              className="absolute bottom-1/4 right-10 w-2 h-2 rounded-full bg-yellow-400/30"
+              animate={{
+                y: [0, 20, 0],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+            />
+            <motion.div
+              className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full bg-yellow-400/20"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.4, 0.2],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2,
+              }}
+            />
+          </div>
         </motion.div>
       </div>
     </motion.section>
   );
-};
-
-export default CTASection;
+}

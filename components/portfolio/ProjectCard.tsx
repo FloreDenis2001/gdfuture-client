@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
@@ -15,7 +17,7 @@ interface ProjectCardProps {
   setHoveredIndex: (index: number | null) => void;
 }
 
-const ProjectCard = ({ project, index, hoveredIndex, setHoveredIndex }: ProjectCardProps) => {
+export default function ProjectCard({ project, index, hoveredIndex, setHoveredIndex }: ProjectCardProps) {
   return (
     <motion.div
       className="group relative"
@@ -28,11 +30,12 @@ const ProjectCard = ({ project, index, hoveredIndex, setHoveredIndex }: ProjectC
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="relative overflow-hidden rounded-2xl bg-gray-900/20 backdrop-blur-sm border border-white/5">
+      <div className="relative overflow-hidden rounded-2xl bg-black/40 backdrop-blur-sm border border-white/5">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/90 to-gray-900/50 opacity-0 group-hover:opacity-100 transition-all duration-500"
+          className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
           initial={false}
-          animate={hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }}
+          animate={{ opacity: [0.05, 0.1, 0.05] }}
+          transition={{ duration: 4, repeat: Infinity }}
         />
 
         <motion.img
@@ -50,11 +53,9 @@ const ProjectCard = ({ project, index, hoveredIndex, setHoveredIndex }: ProjectC
           animate={hoveredIndex === index ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <motion.div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-          <div className="relative z-10">
+          <div className="relative z-10 space-y-4">
             <motion.h3
-              className="text-2xl font-bold text-white mb-3"
+              className={`text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${project.gradient}`}
               initial={false}
               animate={hoveredIndex === index ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
@@ -63,7 +64,7 @@ const ProjectCard = ({ project, index, hoveredIndex, setHoveredIndex }: ProjectC
             </motion.h3>
 
             <motion.p
-              className="text-gray-300 mb-4"
+              className="text-gray-300"
               initial={false}
               animate={hoveredIndex === index ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ duration: 0.3, delay: 0.2 }}
@@ -72,7 +73,7 @@ const ProjectCard = ({ project, index, hoveredIndex, setHoveredIndex }: ProjectC
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-2 mb-6"
+              className="flex flex-wrap gap-2"
               initial={false}
               animate={hoveredIndex === index ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ duration: 0.3, delay: 0.3 }}
@@ -80,7 +81,7 @@ const ProjectCard = ({ project, index, hoveredIndex, setHoveredIndex }: ProjectC
               {project.tech.map((tech, tIndex) => (
                 <span
                   key={tIndex}
-                  className="px-3 py-1 bg-yellow-500/20 rounded-full text-yellow-300 text-sm backdrop-blur-sm border border-yellow-500/20"
+                  className={`px-3 py-1 bg-gradient-to-br ${project.gradient} bg-opacity-10 rounded-full text-white text-sm backdrop-blur-sm border border-white/10`}
                 >
                   {tech}
                 </span>
@@ -89,21 +90,25 @@ const ProjectCard = ({ project, index, hoveredIndex, setHoveredIndex }: ProjectC
 
             <motion.a
               href="#"
-              className="inline-flex items-center text-white font-medium group/btn bg-yellow-500/20 px-4 py-2 rounded-xl hover:bg-yellow-500/30 transition-all duration-300"
+              className="inline-flex items-center text-white font-medium group/btn"
               initial={false}
               animate={hoveredIndex === index ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ duration: 0.3, delay: 0.4 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ x: 5 }}
             >
               View Project
               <ExternalLink className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
             </motion.a>
           </div>
         </motion.div>
+
+        <motion.div
+          className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r ${project.gradient}`}
+          initial={{ scaleX: 0 }}
+          whileHover={{ scaleX: 1 }}
+          transition={{ duration: 0.5 }}
+        />
       </div>
     </motion.div>
   );
-};
-
-export default ProjectCard;
+}

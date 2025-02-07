@@ -1,78 +1,66 @@
 import React from 'react';
-import { Brain, Coffee, Code2, Rocket, ArrowRight } from 'lucide-react';
+import { Brain, Coffee, Code2, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ProcessSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
-    }
-  };
-
   const steps = [
     {
       number: "01",
       title: "Discovery",
-      description: "We dive deep into your requirements and vision",
-      icon: <Brain size={32} />,
-      gradient: "from-blue-400 to-indigo-600"
+      description: "Understanding your vision and requirements through deep analysis",
+      icon: Brain,
+      theme: {
+        primary: "from-blue-500 to-indigo-600",
+        accent: "blue-500",
+        hover: "blue-400"
+      }
     },
     {
       number: "02",
-      title: "Planning",
-      description: "Creating detailed roadmap and architecture",
-      icon: <Coffee size={32} />,
-      gradient: "from-purple-400 to-pink-600"
+      title: "Strategy",
+      description: "Crafting the perfect technical architecture and roadmap",
+      icon: Coffee,
+      theme: {
+        primary: "from-violet-500 to-purple-600",
+        accent: "violet-500",
+        hover: "violet-400"
+      }
     },
     {
       number: "03",
       title: "Development",
-      description: "Building your solution with best practices",
-      icon: <Code2 size={32} />,
-      gradient: "from-yellow-400 to-orange-600"
+      description: "Building your solution with cutting-edge technologies",
+      icon: Code2,
+      theme: {
+        primary: "from-yellow-400 to-yellow-600",
+        accent: "yellow-500",
+        hover: "yellow-400"
+      }
     },
     {
       number: "04",
-      title: "Delivery",
-      description: "Testing, deployment and ongoing support",
-      icon: <Rocket size={32} />,
-      gradient: "from-green-400 to-emerald-600"
+      title: "Launch",
+      description: "Deploying and scaling your enterprise solution",
+      icon: Rocket,
+      theme: {
+        primary: "from-emerald-500 to-teal-600",
+        accent: "emerald-500",
+        hover: "emerald-400"
+      }
     }
   ];
 
   return (
     <motion.section 
-      className="py-20 px-4 relative overflow-hidden"
+      className="py-32 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-transparent to-yellow-900/5"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      />
+     
       
-      <div className="max-w-7xl mx-auto relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -82,112 +70,102 @@ const ProcessSection = () => {
         >
           <motion.div 
             className="inline-block mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="px-6 py-2 bg-yellow-500/10 rounded-full backdrop-blur-sm border border-yellow-500/20">
-              <span className="text-yellow-400 font-medium bg-gradient-to-r from-yellow-200 to-yellow-400 bg-clip-text text-transparent">
-                How We Work
-              </span>
-            </div>
-          </motion.div>
-          
-          <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-white">Our Development </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-              Process
-            </span>
-          </motion.h2>
+            <div className="px-6 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-sm">
+              <span className="text-yellow-300 font-medium">
+                Development Process
+              </span>
+            </div>
+          </motion.div>
           
-          <motion.p 
-            className="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto"
+          <motion.h2 
+            className="text-4xl lg:text-5xl font-bold mb-8 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            We follow a proven methodology to ensure successful project delivery
+            <span className="text-white">Transforming Vision </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+              Into Reality
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-gray-300 text-lg mb-16 leading-relaxed max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Our proven enterprise development methodology ensures successful delivery
+            of complex technical solutions
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          className="grid sm:grid-cols-2 md:grid-cols-4 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="relative group"
-              variants={itemVariants}
+              className="group relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="relative bg-gray-900/20 backdrop-blur-sm border border-white/5 p-8 rounded-2xl overflow-hidden transition-all duration-500 hover:border-white/20 group-hover:translate-y-[-5px]">
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  initial={false}
-                  whileHover={{ scale: 1.5, opacity: 0.1 }}
-                  transition={{ duration: 1 }}
-                />
+              <div className="relative h-full">
+                <div className="absolute inset-0 rounded-2xl bg-black/40 backdrop-blur-sm border border-white/5 transition-all duration-500 group-hover:border-white/10" />
                 
-                <div className="relative z-10">
-                  <motion.div 
-                    className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${step.gradient} bg-opacity-10 mb-6`}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    <div className="p-2 bg-black/30 rounded-lg text-white">
-                      {step.icon}
+                <div className="relative p-8">
+                  <div className="mb-6">
+                    <div className={`relative w-16 h-16 rounded-xl bg-gradient-to-br ${step.theme.primary} p-0.5`}>
+                      <div className="absolute inset-0 blur-xl bg-gradient-to-br opacity-50" />
+                      <div className="relative h-full w-full bg-black/60 rounded-[10px] flex items-center justify-center">
+                        <step.icon className={`w-8 h-8 text-${step.theme.hover}`} />
+                      </div>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.div 
-                    className={`absolute top-4 right-4 text-6xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
-                    initial={false}
-                    whileHover={{ scale: 1.1, opacity: 0.3 }}
-                  >
+                  <div className={`absolute top-6 right-8 text-4xl sm:text-6xl md:text-8xl font-bold bg-gradient-to-br ${step.theme.primary} bg-clip-text text-transparent opacity-10`}>
                     {step.number}
-                  </motion.div>
+                  </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-200 group-hover:to-yellow-400 transition-all duration-300">
+                  <h3 className={`text-2xl font-bold mb-4 text-${step.theme.hover}`}>
                     {step.title}
                   </h3>
 
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  <p className="text-gray-400 leading-relaxed">
                     {step.description}
                   </p>
+
+                  <div className={`absolute bottom-4  left-0 w-full h-1 bg-gradient-to-r ${step.theme.primary} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-50`} />
                 </div>
 
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-white/20 transition-all duration-500" />
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 z-20">
+                    <motion.div
+                      className="w-6 h-6 rounded-full bg-yellow-500/20 backdrop-blur-sm flex items-center justify-center"
+                      animate={{
+                        x: [0, 10, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                    </motion.div>
+                  </div>
+                )}
               </div>
-
-              {index < 3 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                  <motion.div
-                    initial={{ x: 0 }}
-                    animate={{ x: [0, 10, 0] }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <ArrowRight size={24} className="text-yellow-400" />
-                  </motion.div>
-                </div>
-              )}
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </motion.section>
   );

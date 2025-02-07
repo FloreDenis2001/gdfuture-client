@@ -25,8 +25,8 @@ export default function Navigation() {
     { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
     { label: "Portfolio", path: "/portfolio" },
-    { label: "Team", path: "/team" },
-    { label: "Careers", path: "/careers" },
+    // { label: "Team", path: "/team" },
+    // { label: "Careers", path: "/careers" },
     { label: "Contact", path: "/contact" },
   ];
 
@@ -129,7 +129,7 @@ export default function Navigation() {
             />
 
             <motion.div
-              className="fixed right-0 top-0 h-full w-full bg-gray-900 z-50 md:hidden"
+              className="fixed right-0 top-0 h-full w-full bg-black z-50 md:hidden"
               initial="closed"
               animate="open"
               exit="closed"

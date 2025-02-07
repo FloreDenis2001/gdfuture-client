@@ -1,25 +1,70 @@
+"use client";
+
 import React from "react";
 import { Brain, Cpu, Shield, Gauge, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+
+const features = [
+  {
+    icon: Brain,
+    title: "Strategic Innovation",
+    description: "Driving digital transformation through advanced solutions",
+    theme: {
+      primary: "from-blue-500 to-indigo-600",
+      accent: "blue-500",
+      hover: "blue-400"
+    }
+  },
+  {
+    icon: Cpu,
+    title: "Technical Excellence",
+    description: "Cutting-edge technology implementation",
+    theme: {
+      primary: "from-violet-500 to-purple-600",
+      accent: "violet-500",
+      hover: "violet-400"
+    }
+  },
+  {
+    icon: Shield,
+    title: "Enterprise Security",
+    description: "Advanced protection for critical systems",
+    theme: {
+      primary: "from-emerald-500 to-teal-600",
+      accent: "emerald-500",
+      hover: "emerald-400"
+    }
+  },
+  {
+    icon: Gauge,
+    title: "High Performance",
+    description: "Optimized solutions for maximum efficiency",
+    theme: {
+      primary: "from-amber-500 to-orange-600",
+      accent: "amber-500",
+      hover: "amber-400"
+    }
+  },
+];
 
 export default function AboutSection() {
   return (
     <motion.section
       id="about"
-      className="py-20 px-4 relative overflow-hidden"
+      className="py-32 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-yellow-900/10 to-transparent opacity-30"
+        className="absolute inset-0 bg-black/50"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       />
 
-      <div className="max-w-7xl mx-auto relative">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -31,165 +76,118 @@ export default function AboutSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="px-6 py-2 bg-yellow-500/10 rounded-full backdrop-blur-sm border border-yellow-500/20">
-                <span className="text-yellow-400 font-medium bg-gradient-to-r from-yellow-200 to-yellow-400 bg-clip-text text-transparent">
-                  About Us
+              <div className="px-6 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-sm">
+                <span className="text-yellow-300 font-medium">
+                  Our Vision & Mission
                 </span>
               </div>
             </motion.div>
 
             <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8"
+              className="text-4xl lg:text-5xl font-bold mb-8 tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <span className="text-white">We&apos;re a Team of </span>
+              <span className="text-white">Pioneering </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                Digital Craftsmen
+                Digital Excellence
               </span>
             </motion.h2>
 
             <motion.p
-              className="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed"
+              className="text-gray-300 text-lg mb-12 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              With over a decade of experience in digital innovation, we&apos;ve
-              mastered the art of transforming complex challenges into elegant
-              solutions. Our passion for technology and commitment to
-              excellence drives us to deliver exceptional results for our
-              clients.
+              With over a decade of experience in enterprise solutions, we've established 
+              ourselves as leaders in digital transformation. Our commitment to innovation 
+              and technical excellence enables us to deliver sophisticated solutions that 
+              drive business growth and efficiency.
             </motion.p>
 
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8"
+              className="grid sm:grid-cols-2 gap-6 mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              {[
-                {
-                  icon: <Brain size={24} />,
-                  text: "Strategic Thinking",
-                  gradient: "from-blue-400 to-indigo-600",
-                },
-                {
-                  icon: <Cpu size={24} />,
-                  text: "Technical Excellence",
-                  gradient: "from-purple-400 to-pink-600",
-                },
-                {
-                  icon: <Shield size={24} />,
-                  text: "Secure Solutions",
-                  gradient: "from-green-400 to-emerald-600",
-                },
-                {
-                  icon: <Gauge size={24} />,
-                  text: "High Performance",
-                  gradient: "from-yellow-400 to-orange-600",
-                },
-              ].map((item, index) => (
+              {features.map((feature, index) => (
                 <motion.div
-                  key={index}
-                  className="group relative p-4 bg-white/[0.03] rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
-                  whileHover={{ scale: 1.02, y: -5 }}
+                  key={feature.title}
+                  className="group relative"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ y: -5 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-                  <div className="relative flex items-center space-x-3">
-                    <div
-                      className={`p-2 rounded-lg bg-gradient-to-r ${item.gradient} bg-opacity-10`}
-                    >
-                      <div className="text-white">{item.icon}</div>
+                  <div className="relative overflow-hidden rounded-xl bg-black/40 backdrop-blur-sm border border-white/5">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.theme.primary} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                    <div className="p-6">
+                      <div className="mb-4 relative">
+                        <div className={`absolute inset-0 bg-${feature.theme.accent}/20 blur-xl rounded-full`} />
+                        <div className={`relative bg-gradient-to-br ${feature.theme.primary} bg-opacity-10 w-12 h-12 rounded-xl flex items-center justify-center`}>
+                          <feature.icon className={`w-6 h-6 text-${feature.theme.hover}`} />
+                        </div>
+                      </div>
+                      <h3 className={`text-${feature.theme.hover} font-semibold text-lg mb-2 transition-colors duration-300`}>
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                      <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r ${feature.theme.primary} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
                     </div>
-                    <span className="text-gray-300 font-medium">
-                      {item.text}
-                    </span>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
 
             <motion.button
-              className="group relative px-8 py-4 bg-yellow-500/10 text-yellow-400 rounded-xl font-semibold transition-all duration-300 hover:bg-yellow-500/20 flex items-center overflow-hidden"
+              className="group relative inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 rounded-lg font-medium transition-all hover:from-yellow-500 hover:to-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-900"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur-xl"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              />
-              <span className="relative flex items-center">
-                Learn More About Us
-                <ArrowRight
-                  className="ml-2 transition-transform group-hover:translate-x-1"
-                  size={20}
-                />
-              </span>
+              Discover Our Approach
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </motion.button>
           </motion.div>
 
           <motion.div
-            className="relative mt-8 md:mt-0"
+            className="relative h-[350px] sm:h-[450px] lg:h-[600px] w-full"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
-              className="relative rounded-lg overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/20 via-transparent to-yellow-500/20 z-10 mix-blend-overlay" />
-              <img
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80"
-                alt="Team at work"
-                className="rounded-lg shadow-2xl w-full h-full object-cover transform transition-transform duration-300"
-              />
-            </motion.div>
-
-            <motion.div
-              className="absolute -bottom-6 -left-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="relative bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 p-6 rounded-lg shadow-xl overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 bg-white/20"
-                  animate={{
-                    opacity: [0.1, 0.2, 0.1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                  }}
+            <div className="relative h-full">
+              <motion.div
+                className="absolute inset-0 rounded-2xl overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/20 via-transparent to-yellow-500/20 mix-blend-overlay z-10" />
+                <img
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80"
+                  alt="Modern office workspace"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
-                <div className="relative">
-                  <div className="text-4xl font-bold mb-2">10+</div>
-                  <div className="text-sm font-medium">
-                    Years of Excellence
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-8 -left-2 sm:-bottom-6 sm:-left-6 z-20"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-3 sm:p-6 rounded-2xl shadow-xl">
+                  <div className="text-gray-900">
+                    <div className="text-2xl sm:text-3xl font-bold mb-1">15+</div>
+                    <div className="text-[10px] sm:text-xs font-medium">Years of Innovation</div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
