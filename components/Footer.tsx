@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <motion.footer 
-      className="relative py-24 overflow-hidden bg-black/50"
+      className="relative py-8 md:py-16 overflow-hidden bg-black/50"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

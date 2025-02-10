@@ -55,7 +55,7 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-40"
         >
           <source src="/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.

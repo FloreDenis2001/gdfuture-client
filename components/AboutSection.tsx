@@ -51,7 +51,7 @@ export default function AboutSection() {
   return (
     <motion.section
       id="about"
-      className="py-32 relative overflow-hidden"
+      className="py-8 md:py-16 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

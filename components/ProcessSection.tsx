@@ -22,8 +22,8 @@ const ProcessSection = () => {
       icon: Coffee,
       theme: {
         primary: "from-violet-500 to-purple-600",
-        accent: "violet-500",
-        hover: "violet-400"
+        accent: "purple-500",
+        hover: "purple-400"
       }
     },
     {
@@ -44,15 +44,15 @@ const ProcessSection = () => {
       icon: Rocket,
       theme: {
         primary: "from-emerald-500 to-teal-600",
-        accent: "emerald-500",
-        hover: "emerald-400"
+        accent: "green-400",
+        hover: "green-400"
       }
     }
   ];
 
   return (
     <motion.section 
-      className="py-32 relative overflow-hidden"
+      className="py-6 md:py-16 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

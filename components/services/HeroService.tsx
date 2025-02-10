@@ -7,7 +7,7 @@ import { Sparkles } from 'lucide-react';
 export default function HeroService() {
   return (
     <motion.section 
-      className="relative py-32 overflow-hidden"
+      className="relative pt-36 pb-16 overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

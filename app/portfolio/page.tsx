@@ -84,7 +84,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-black/50">
       {/* Hero Section */}
       <motion.section
-        className="py-32 relative overflow-hidden "
+        className="py-36 relative overflow-hidden "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}

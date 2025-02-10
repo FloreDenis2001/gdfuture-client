@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function CTASection() {
   return (
     <motion.section
-      className="relative py-24 overflow-hidden"
+      className="relative py-8 md:py-16  overflow-hidden"
       initial="hidden"
       animate="visible"
       transition={{ duration: 1 }}

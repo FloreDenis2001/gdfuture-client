@@ -108,7 +108,7 @@ export default function ServicesGrid() {
 
   return (
     <motion.section 
-      className="py-32 relative overflow-hidden"
+      className="py-8 md:py-16 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -221,23 +221,8 @@ export default function ServicesGrid() {
                       ))}
                     </ul>
 
-                    <motion.div
-                      className="mt-6 flex items-center text-white group/link cursor-pointer"
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
-                      <span className={`text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
-                        Learn More
-                      </span>
-                      <ArrowRight className={`ml-2 w-4 h-4 text-transparent bg-clip-text bg-gradient-to-r ${service.gradient} transition-transform group-hover/link:translate-x-1`} />
-                    </motion.div>
 
-                    <motion.div
-                      className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r ${service.gradient}`}
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.5 }}
-                    />
+                 
                   </div>
                 </div>
               </motion.div>
